@@ -1,0 +1,8 @@
+# Remove sorter env
+sorter/
+
+# Remove sorting script files
+tosort/
+
+# Remove Mac files
+.DS_Store
