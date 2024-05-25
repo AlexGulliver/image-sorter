@@ -4,19 +4,9 @@ from PIL import Image
 class ImageSorter:
     """Image sorting class"""
 
-    def init_sorting_folder(self, folderpath):
-        self.sort_folder_path = folderpath
-        print(f"{self.sort_folder_path}")
-        if os.path.isdir(self.sort_folder_path):
-            return False
-        else:
-            os.mkdir(self.sort_folder_path)
-            return True
-
     def sort_images(self, sortfolder):
         self.sortcount = 0
-        print(f"{self.sort_folder_path}")
-        for file in os.listdir(self.sort_folder_path):
+        for file in os.listdir(sortfolder):
             filename = os.fsdecode(file)
             if (filename != ".DS_Store") and ("." in filename):
                 filepath = sortfolder + "/" + filename
@@ -30,17 +20,17 @@ class ImageSorter:
                     print(f"Month: {month}")
                     print(f"Datetime: {exifdata[306]}\n")
 
-                    if os.path.isdir(year):
+                    if os.path.isdir(os.path.join(sortfolder, year)):
                         pass
                     else:
-                        os.mkdir(year)
+                        os.mkdir(os.path.join(sortfolder, year))
 
-                    if os.path.isdir(os.path.join(year, month)):
+                    if os.path.isdir(os.path.join(sortfolder, year, month)):
                         pass
                     else:
-                        os.mkdir(os.path.join(year, month))
+                        os.mkdir(os.path.join(sortfolder, year, month))
 
-                    sorted_path = os.path.join(year, month) + "/" + filename
+                    sorted_path = os.path.join(sortfolder, year, month) + "/" + filename
 
                     os.rename(filepath, sorted_path)
                     self.sortcount += 1
