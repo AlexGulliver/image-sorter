@@ -1,6 +1,3 @@
-# Remove sorter env
-sorter/
-
 # Remove sorting script files
 tosort/
 
