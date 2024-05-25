@@ -5,19 +5,20 @@ class ImageSorter:
     """Image sorting class"""
 
     def init_sorting_folder(self, sortfolder):
-        current_directory = os.path.dirname(os.path.abspath(__file__))
-        parent_directory = os.path.dirname(current_directory)
-        sort_folder_path = os.path.join(parent_directory, sortfolder)
-        if os.path.isdir(sort_folder_path):
+        self.current_directory = os.path.dirname(os.path.abspath(__file__))
+        self.parent_directory = os.path.dirname(self.current_directory)
+        self.sort_folder_path = os.path.join(self.parent_directory, sortfolder)
+        print(f"{self.sort_folder_path}")
+        if os.path.isdir(self.sort_folder_path):
             return False
         else:
-            os.mkdir(sort_folder_path)
+            os.mkdir(self.sort_folder_path)
             return True
 
     def sort_images(self, sortfolder):
-        sort_folder_path = os.path.join(os.path.dirname(__file__), sortfolder)
         self.sortcount = 0
-        for file in os.listdir(sort_folder_path):
+        print(f"{self.sort_folder_path}")
+        for file in os.listdir(self.sort_folder_path):
             filename = os.fsdecode(file)
             if (filename != ".DS_Store") and ("." in filename):
                 filepath = sortfolder + "/" + filename
