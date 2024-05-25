@@ -5,7 +5,6 @@ from PIL import Image
 
 sortfolder = "tosort"
 
-
 class ImageSorter:
     """Image sorting class"""
 
@@ -19,6 +18,7 @@ class ImageSorter:
 
     def sort_images(self, sortfolder):
         sort_folder_path = os.path.join(os.path.dirname(__file__), sortfolder)
+        self.sortcount = 0
         for file in os.listdir(sort_folder_path):
             filename = os.fsdecode(file)
             
@@ -48,9 +48,9 @@ class ImageSorter:
                     sorted_path = os.path.join(year, month) + "/" + filename
 
                     os.rename(filepath, sorted_path)
+                    self.sortcount += 1
             else:
                 pass
-
 
 image_sorter = ImageSorter()
 
@@ -59,5 +59,6 @@ sort_folder_created = image_sorter.init_sorting_folder(sortfolder)
 if sort_folder_created:
     print(f"Specified sort folder does not exist. Place image files inside /{sortfolder} and re-run script.")
 else:
-    print(f"{sortfolder} folder already exists.")
+    print(f"{sortfolder} folder found. Sorting files...")
     image_sorter.sort_images(sortfolder)
+    print(f"Sorting completed. Moved {image_sorter.sortcount} files")
