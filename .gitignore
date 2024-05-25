@@ -1,4 +1,5 @@
 __pycache__/
+imagesorter/__pycache__/
 
 # Remove sorting script files
 tosort/
