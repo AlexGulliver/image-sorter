@@ -4,10 +4,8 @@ from PIL import Image
 class ImageSorter:
     """Image sorting class"""
 
-    def init_sorting_folder(self, sortfolder):
-        self.current_directory = os.path.dirname(os.path.abspath(__file__))
-        self.parent_directory = os.path.dirname(self.current_directory)
-        self.sort_folder_path = os.path.join(self.parent_directory, sortfolder)
+    def init_sorting_folder(self, folderpath):
+        self.sort_folder_path = folderpath
         print(f"{self.sort_folder_path}")
         if os.path.isdir(self.sort_folder_path):
             return False

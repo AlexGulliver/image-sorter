@@ -3,9 +3,9 @@ This is a python image sorting script. The script creates a tosort/ folder (if i
 
 ## Usage
 
-### Installation
+## Installation
 
-### TODO
+## TODO
 - TKinter GUI interface - Add input for file path
 - Testing, check with multiple image formats
 - Add support for .MOV files
