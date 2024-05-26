@@ -10,7 +10,7 @@ def sort(folder_path):
     print("Sorting files...")
     print(f"FOLDERPATH: {folder_path}")
     image_sorter.sort_images(folder_path)
-    print(f"Sorting completed. Moved {image_sorter.sortcount} files")
+    print(f"Sorting completed. Moved {image_sorter.filesortedcount} files")
 
 def browse_button():
     """Stores user-selected sort path to folder path."""

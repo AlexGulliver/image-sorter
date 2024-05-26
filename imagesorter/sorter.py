@@ -4,7 +4,7 @@ from PIL import Image
 class ImageSorter:
     """Image sorting class"""
     def sort_images(self, sortfolder):
-        self.sortcount = 0
+        self.filesortedcount = 0
         for file in os.listdir(sortfolder):
             filename = os.fsdecode(file)
             if (filename != ".DS_Store") and ("." in filename):
@@ -32,6 +32,6 @@ class ImageSorter:
                     sorted_path = os.path.join(sortfolder, year, month) + "/" + filename
 
                     os.rename(filepath, sorted_path)
-                    self.sortcount += 1
+                    self.filesortedcount += 1
                 else:
                     pass
