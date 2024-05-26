@@ -6,14 +6,14 @@ from imagesorter.sorter import ImageSorter
 from functools import partial
 
 def sort(folder_path):
-    """Calls image sort when sort button pressed"""
+    """Calls image sort when sort button pressed."""
     print("Sorting files...")
     print(f"FOLDERPATH: {folder_path}")
     image_sorter.sort_images(folder_path)
     print(f"Sorting completed. Moved {image_sorter.sortcount} files")
 
 def browse_button():
-    """ Returns folder path user selects from"""
+    """Stores user-selected sort path to folder path."""
     folder_path = filedialog.askdirectory()
     if folder_path:
         folder_path_var.set(folder_path)
@@ -21,14 +21,16 @@ def browse_button():
         return folder_path
 
 def sort_with_filename():
-    """Passes folder path to sort button"""
+    """File sorter command for sort button."""
     filename = folder_path_var.get()
     if filename:
         sort(filename)
 
+# Initialise TKinter and ImageSorter
 root = Tk()
-folder_path_var = StringVar()
 image_sorter = ImageSorter()
+
+folder_path_var = StringVar()
 
 # Labels
 browse_label = Label(root, text="Select path of folder containing images")

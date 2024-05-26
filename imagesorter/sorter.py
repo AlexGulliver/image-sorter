@@ -3,7 +3,6 @@ from PIL import Image
 
 class ImageSorter:
     """Image sorting class"""
-
     def sort_images(self, sortfolder):
         self.sortcount = 0
         for file in os.listdir(sortfolder):
