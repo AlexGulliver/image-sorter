@@ -1,6 +1,8 @@
 # Python Image Sorter
-This is a python image sorting script. The script creates a tosort/ folder (if it does not already exist) in the working directory. You can currently place .jpeg image files in this folder and they will be sorted into /YEAR/MONTH/ folders based on their metadata. There is currently not support for other image file types - planned to add later. 
+This is a python image sorting script. It uses a TKinter GUI. 
+
+## Usage
+Direct the script to desired folder path that contains images you wish to sort. The images will be sorted in place into a YEAR / MONTH folder format. Currently the script only supports .jpeg / .jpg. 
 
 ## TODO
-- Testing, check with multiple image formats
-- Add support for .MOV files
+- Add support for other image formats. 
